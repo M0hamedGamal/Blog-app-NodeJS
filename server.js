@@ -7,8 +7,8 @@ npm i method-override
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-
-mongoose.connect('mongodb://127.0.0.1/blogDB', {
+const PORT = process.env.PORT | 3000
+mongoose.connect(DB_URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -33,4 +33,4 @@ app.get('/', async(req, res) => {
 
 })
 
-app.listen(5000)
+app.listen(PORT)
