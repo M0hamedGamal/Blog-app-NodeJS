@@ -13,7 +13,6 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const PORT = process.env.PORT | 3000
 
 mongoose.connect(process.env.DB_URL, {
     useCreateIndex: true,
@@ -40,4 +39,4 @@ app.get('/', async(req, res) => {
 
 })
 
-app.listen(PORT)
+app.listen(process.env.PORT || 3000)
