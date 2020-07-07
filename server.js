@@ -4,11 +4,17 @@ npm i --save-dev nodemon
 npm i slugify    // Instead appear ID into query.. use any field else.. in our case we use title.
 npm i method-override
 */
+
+// process.env.NODE_ENV !== 'production' --> default running by node js but let we check. 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config({ path: 'env' }); // run the 'dotenv' lib & config the path of env
+}
+
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const PORT = process.env.PORT | 3000
-mongoose.connect(DB_URL, {
+mongoose.connect(process.env.DB_URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
